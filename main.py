@@ -1,0 +1,25 @@
+import pandas as pd
+from pathlib import Path
+
+df = pd.read_csv("eda_student_dataset.csv")
+
+print("="*60)
+print("EXPLORATORY DATA ANALYSIS (EDA)")
+print("="*60)
+print("\nDataset shape:", df.shape)
+print("\nFirst 5 rows:")
+print(df.head())
+print("\nStatistical Summary:")
+print(df.describe())
+print("\nMissing Values:")
+print(df.isnull().sum())
+print("\nDuplicate Rows:", df.duplicated().sum())
+print("\nCorrelation Matrix:")
+print(df.select_dtypes(include="number").corr().round(2))
+print("\nKey Findings:")
+print("Average Study Hours:", round(df["Study_Hours"].mean(),2))
+print("Average Attendance:", round(df["Attendance"].mean(),2))
+print("Average Math Score:", round(df["Math_Score"].mean(),2))
+print("Average Science Score:", round(df["Science_Score"].mean(),2))
+print("Average English Score:", round(df["English_Score"].mean(),2))
+print("\nCheck the outputs folder for visualizations.")
